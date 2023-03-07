@@ -1,0 +1,56 @@
+
+#include <Servo.h>
+int x=500;
+int y=2000;
+int hold=5000;
+int max=(.09)*y-45;
+int min=(.09)*x-45;
+int t1=5000;
+int t2=2000;
+int n1=4;
+int t3=3000;
+int n2=3;
+int t4=5000;
+int pin = 12;
+int switch_state = 0;
+
+Servo s1;
+void setup()
+{
+  s1.attach(9);
+  s1.write(0);
+  pinMode(pin, INPUT);
+ // Serial.begin(9600);
+ 
+
+}
+void servo(int time,int n){
+for(int nu=0;nu<n;nu++){
+   
+      s1.write(min);
+
+      delay(1000);
+
+      s1.write(max);
+
+      delay(time);
+      }
+
+}
+void loop()
+{ switch_state = digitalRead(pin);
+  //Serial.println(switch_state);
+ 
+  if(switch_state==HIGH)
+{
+  servo(t1,1);
+  servo(t2,n1);
+  servo(t3,n2);
+
+  delay(t4-t3);
+   
+  s1.write(0);
+  }
+
+  delay(1000);
+}
