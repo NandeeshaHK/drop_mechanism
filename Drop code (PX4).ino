@@ -23,21 +23,16 @@ void move_servo(Servo &myservo) {
   // for loop to repeat the repeatative actions
   for(int i=0;i<2;i++)
   {
-  myservo.writeMicroseconds(1500); // move to 1500us position
+  myservo.writeMicroseconds(1800); // move to 1500us position
   delay(1000); // wait for servo to reach position
 
-  myservo.writeMicroseconds(1250); // move to 1250us position
+  myservo.writeMicroseconds(1000); // move to 1250us position
   delay(1000);
   }
   //Final actions
-  myservo.writeMicroseconds(1500); // move back to 1500us position
-  delay(1000);
+  myservo.writeMicroseconds(1800); // move back to 1500us position
+  delay(200);
 
-  myservo.writeMicroseconds(2000); // move to 2000us position
-  delay(1000);
-
-  myservo.writeMicroseconds(1500); // move back to 1500us position
-  delay(1000);
 
   myservo.detach(); // detach the servo to free up the pin
 }
